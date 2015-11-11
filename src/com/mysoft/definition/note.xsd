@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.mysoft.com">
+	
+	<xs:element name="note">
+		<xs:complexType>
+			<!--
+				sequence 按照顺序出现
+			-->
+			<xs:sequence>
+				<xs:element name="to" type="xs:string" />
+				<xs:element name="from" type="xs:string"/>
+				<xs:element name="heading" type="xs:string" />
+				<xs:element name="body" type="xs:string" />
+				
+				<!--
+					1. complexType 多个元素
+					2. simpleType 单个元素
+				-->
+				
+				<!-- 元素出现的次数 -->
+				<xs:element name="card" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="number" />
+							<xs:element name="amount">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minExclusive value="0" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<!-- 整形的范围限制 -->
+				<xs:element name="age">
+					<xs:simpleType>
+						<xs:restriction base="xs:integer">
+							<xs:minInclusive value="0" />
+							<xs:maxInclusive value="100" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>		
+				
+				<!-- 对一组值的限制 -->		
+				<xs:element name="band">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="ThinkPad" />
+							<xs:enumeration value="HP" />
+							<xs:enumeration value="Dell" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+				<!-- 对一系列值的限制, 可接受一个小写字母 -->
+				<xs:element name="letter">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[a-z]" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+				<!-- 对一系列值的限制, 可接受0个或者多个小写字母 -->
+				<xs:element name="onemoreLetter">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="([a-z])*" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+				<!-- 对一系列值的限制, 可接受三个大写字母 -->
+				<xs:element name="uperLetter">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[A-Z][A-Z][A-Z]" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+				<!-- 对一系列值的限制, 可接受三个数字 -->
+				<xs:element name="three_number">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9][0-9][0-9]" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>	
+				
+				<!-- 对一系列值的限制, 两个中的一个 -->
+				<xs:element name="either">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="male|female" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>	
+				
+				<!-- 对一系列值的限制, 接受8个字母或者数字 -->
+				<xs:element name="eight_letter">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[a-zA-Z0-9]{8}" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>	
+				
+				<!-- 长度的限制，固定长度 -->
+				<xs:element name="fix_length">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="5" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>			
+				
+				<!-- 长度的限制，固定长度 -->
+				<xs:element name="range_length">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength  value="1" />
+							<xs:maxLength  value="5" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>				
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

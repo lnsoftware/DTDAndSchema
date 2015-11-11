@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "C:\Users\Administrator\Desktop\XML\note.dtd">
+<note>
+	<to>Alan</to>
+	<to>David</to>
+	<from>asdf</from>
+	<from>Steven</from>
+	<heading>Test</heading>
+	<body>Hello world</body>
+</note>

@@ -7,13 +7,17 @@
 	<from>Steven</from>
 	<heading>Test heading</heading>
 	<body>BODY</body>
-	<card>
+	<card lock="YES">
 		<number>622202192837412439</number>
 		<amount>1000</amount>
 	</card>
-	<card>
+	<card lock="NO">
 		<number>622202192837412439</number>
 		<amount>1</amount>
+	</card>
+	<card lock="NO">
+		<number>644202192837412439</number>
+		<amount>200</amount>
 	</card>
 	<age>98</age>
 	<band>Dell</band>
